@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duolingo Forums</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="/assets/icon.svg" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./comment.js" defer></script>
+
+</head>
+<body>
+
+    <header>
+        <div>
+            <img src="/assets/icon.svg" alt="Forums Icon">
+            <span>Forum Flags</span>
+        </div>
+    </header>
+
+    <div id="intro">
+        <p>
+            Anyone remember looking at their flags on the Duolingo forums? <br>
+            I miss it, so for a blast to the past, you can see them here!
+
+            <br><br>
+            <a href="https://frzzl.uk" style="color: crimson; text-decoration: none;">
+                About Me
+            </a>
+        </p>
+    </div>
+
+    <div id="wrap">
+        <img src="https://s3.amazonaws.com/duolingo-images/avatar/default_2/large" alt="PFP" id="pfp">
+        <ul id="main">
+            <div>
+                <h1>
+                    RIP Forums.
+                </h1>
+            </div>
+            <span id="flags">
+            </span>
+            <div id='comment'><p>Username not found.</p></div>
+            <div>
+                <hr><form onsubmit="reload(); return false;" >
+                    <input type="text" id="username" placeholder="Your username here:"><br>
+                    <input type="submit" id="submit" value="POST">
+                    </form>
+            </div>
+        </ul>
+
+    </div>
+
+    
+    <footer>
+        <span>
+            Design heavily inspired by <a href="https://duopie.site/" style="color: crimson; text-decoration: none;">DuoPie</a> :D
+        </span>
+    </footer>
+
+</body>
+</html>
