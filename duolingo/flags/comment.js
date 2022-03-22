@@ -1,7 +1,7 @@
 function getRawData(username){
     return JSON.parse($.ajax({type: "GET",
-     url: `https://www.duolingo.com/2017-06-30/users?username=${username}`, 
-     headers: {},
+     url: `https://cors-anywhere.herokuapp.com/https://www.duolingo.com/2017-06-30/users?username=${username}`, 
+     headers: {"Origin" : "http://127.0.0.1:5555"},
      async: false
     }).responseText).users[0];
 }
@@ -10,7 +10,7 @@ let data = null
 function load() {
     let url = new URL(window.location.href);
     if (!url.searchParams.get("username")){
-        data = getRawData("Luis")
+        data = getRawData("HelpfulDuo");
     } else {
         data = getRawData(url.searchParams.get("username"));
     }
@@ -19,8 +19,9 @@ function load() {
 }
 
 function reload(){
-    window.location.href = "http://127.0.0.1:5555/index.html?username=" + $("#username").val();
+    window.location.href = "https://frzzl.uk/duolingo/flags?username=" + $("#username").val();
 }
+
 let level_boundaries = [0, 60, 120, 200, 300, 450, 750, 1125, 1650, 2250, 3000, 3900, 4900, 6900, 7500, 9000, 10500, 12000, 13500, 15000, 17000, 19000, 22500, 26000, 30000];
 let list_courses = ["en", "es", "fr", "de", "ja", "it", "ko", "zh", "ru", "pt", "tr", "nl-NL", "sv", "ga", "el", "he", "pl", "no-BO", "vi", "da", "hv", "ro", "sw", "eo", "hu", "cy", "uk", "tlh", "cs", "hi", "id", "hw", "nv", "ar", "ca", "th", "gn", "ambassador", "duolingo", "troubleshooting", "teachers", "la", "gd", "fi", "yi", "ht", "tl", "mi"];
 let courses_lookup = {'en': 'English', 'es': 'Spanish', 'fr': 'French', 'de': 'German', 'ja': 'Japanese', 'it': 'Italian', 'ko': 'Korean', 'zh': 'Chinese', 'ru': 'Russian', 'pt': 'Portuguese', 'tr': 'Turkish', 'nl-NL': 'Dutch', 'sv': 'Swedish', 'ga': 'Irish', 'el': 'Greek', 'he': 'Hebrew', 'pl': 'Polish', 'no-BO': 'Norwegian', 'vi': 'Vietnamese', 'da': 'Danish', 'hv': 'High Valyrian', 'ro': 'Romanian', 'sw': 'Swedish', 'eo': 'Esperanto', 'hu': 'Hungarian', 'cy': 'Welsh', 'uk': 'Ukrainian', 'kl': 'Klingon', 'cs': 'Czech', 'hi': 'Hindi', 'id': 'Indonesian', 'hw': 'Hawaiian', 'nv': 'Navajo', 'ar': 'Arabic', 'ca': 'Catalan', 'th': 'Thai', 'gn': 'Guarani', 'ambassador': 'Ambassador', 'duolingo': 'Duolingo', 'troubleshooting': 'Troubleshooting', 'teachers': 'Teachers', 'la': 'Latin', 'gd': 'Scots Gaelic', 'fi': 'Finnish', 'yi': 'Yiddish', 'ht': 'Haitian Creole', 'tl': 'Tagalog', 'mi': 'Maori', "zh-HK": "Cantonese"}
