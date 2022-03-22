@@ -1,7 +1,7 @@
 function getRawData(username){
     return JSON.parse($.ajax({type: "GET",
      url: `https://cors-anywhere.herokuapp.com/https://www.duolingo.com/2017-06-30/users?username=${username}`, 
-     headers: {"Origin" : "http://127.0.0.1:5555"},
+     headers: {"Origin" : "https://frzzl.uk/duolingo/flags"},
      async: false
     }).responseText).users[0];
 }
