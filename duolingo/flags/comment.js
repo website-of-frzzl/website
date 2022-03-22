@@ -90,7 +90,7 @@ function visualise(courses /* id, level, fromlang, xp, title*/) {
 
         if (list_courses.includes(courses[i][0])) {
             $("#cur").css("background-position", `0px -${66 * (list_courses.indexOf(courses[i][0]))}px`);
-        } else if (otherflagskeys.includes("yes")) {
+        } else if (otherflagskeys.includes(courses[i][0])) {
             $("#cur").addClass("flag");
             $("#cur").css("background-image", `url('${otherflags[courses[i][0]]}')`)
         } else {
