@@ -1,7 +1,10 @@
+console.log("Hey! Thanks for checking out my code! I had to learn javascript and jQuery for this, so if you can help me improve this, get in touch: I'm at lefrzzl@gmail.com")
+
+
 function getRawData(username){
     return JSON.parse($.ajax({type: "GET",
-     url: `https://cors-anywhere.herokuapp.com/https://www.duolingo.com/2017-06-30/users?username=${username}`, 
-     headers: {"Origin" : "https://frzzl.uk/duolingo/flags"},
+     url: `https://corsanywhere.herokuapp.com/https://www.duolingo.com/2017-06-30/users?username=${username}`, 
+     headers: {},
      async: false
     }).responseText).users[0];
 }
@@ -10,12 +13,11 @@ let data = null
 function load() {
     let url = new URL(window.location.href);
     if (!url.searchParams.get("username")){
-        data = getRawData("HelpfulDuo");
+        data = getRawData("Luis");
     } else {
         data = getRawData(url.searchParams.get("username"));
     }
     visualise(listCourses())
-    console.log(data)
 }
 
 function reload(){
@@ -25,8 +27,11 @@ function reload(){
 let level_boundaries = [0, 60, 120, 200, 300, 450, 750, 1125, 1650, 2250, 3000, 3900, 4900, 6900, 7500, 9000, 10500, 12000, 13500, 15000, 17000, 19000, 22500, 26000, 30000];
 let list_courses = ["en", "es", "fr", "de", "ja", "it", "ko", "zh", "ru", "pt", "tr", "nl-NL", "sv", "ga", "el", "he", "pl", "no-BO", "vi", "da", "hv", "ro", "sw", "eo", "hu", "cy", "uk", "tlh", "cs", "hi", "id", "hw", "nv", "ar", "ca", "th", "gn", "ambassador", "duolingo", "troubleshooting", "teachers", "la", "gd", "fi", "yi", "ht", "tl", "mi"];
 let courses_lookup = {'en': 'English', 'es': 'Spanish', 'fr': 'French', 'de': 'German', 'ja': 'Japanese', 'it': 'Italian', 'ko': 'Korean', 'zh': 'Chinese', 'ru': 'Russian', 'pt': 'Portuguese', 'tr': 'Turkish', 'nl-NL': 'Dutch', 'sv': 'Swedish', 'ga': 'Irish', 'el': 'Greek', 'he': 'Hebrew', 'pl': 'Polish', 'no-BO': 'Norwegian', 'vi': 'Vietnamese', 'da': 'Danish', 'hv': 'High Valyrian', 'ro': 'Romanian', 'sw': 'Swedish', 'eo': 'Esperanto', 'hu': 'Hungarian', 'cy': 'Welsh', 'uk': 'Ukrainian', 'kl': 'Klingon', 'cs': 'Czech', 'hi': 'Hindi', 'id': 'Indonesian', 'hw': 'Hawaiian', 'nv': 'Navajo', 'ar': 'Arabic', 'ca': 'Catalan', 'th': 'Thai', 'gn': 'Guarani', 'ambassador': 'Ambassador', 'duolingo': 'Duolingo', 'troubleshooting': 'Troubleshooting', 'teachers': 'Teachers', 'la': 'Latin', 'gd': 'Scots Gaelic', 'fi': 'Finnish', 'yi': 'Yiddish', 'ht': 'Haitian Creole', 'tl': 'Tagalog', 'mi': 'Maori', "zh-HK": "Cantonese"}
-let otherflags = {"zh-HK": "./assets/cantonese.png"}
+let otherflags = {"zh-HK": "./assets/cantonese.png"};
+let otherflagskeys = ["zh-HK"];
 
+
+// TODO: Rewrite this absolute mess.
 function listCourses(){
     let courses = [];
     let languages = []
@@ -78,22 +83,18 @@ function visualise(courses /* id, level, fromlang, xp, title*/) {
         $("#flags").append(flag);
 
         // Set flag
-        let getflag = (id) => {
-            if (!list_courses.includes(id)) {
-                return 38;
-            } else {
-                return list_courses.indexOf(id);
-            }
-        };
 
         let title = `${courses[i][4]} (${courses[i][0]}) from ${courses[i][2]} | ${courses[i][3]}xp`;
         $("#cur").prop("title", title);
         $("#cur").parent().nextAll().prop("title", title);
+
         if (list_courses.includes(courses[i][0])) {
-            $("#cur").css("background-position", `0px -${66 * getflag(courses[i][0])}px`);
-        } else {
+            $("#cur").css("background-position", `0px -${66 * (list_courses.indexOf(courses[i][0]))}px`);
+        } else if (otherflagskeys.includes("yes")) {
             $("#cur").addClass("flag");
             $("#cur").css("background-image", `url('${otherflags[courses[i][0]]}')`)
+        } else {
+            $("#cur").css("background-position", `0px -2508px`)
         }
 
         $("#cur").removeAttr('id');
@@ -123,10 +124,7 @@ function visualise(courses /* id, level, fromlang, xp, title*/) {
         $("#streak").parent().nextAll().prop("title", `${title()} Days till Next Milestone`);
     }
 
-    $("#comment > p").text("We had a good run, but now we say goodbye.");
-
-    // INPUT
-
+    $("#comment > p").text("All good things must come to an end...");
 }
 
 load()
