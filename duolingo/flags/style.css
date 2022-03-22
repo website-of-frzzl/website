@@ -1,10 +1,10 @@
 :root {
-    --flagsprite: url('https://duolingo-forum-web.duolingo.com/assets/53557891473c78fe551f30b0a979c442.svg');
+    --flagsprite: url('https://incubator.duolingo.com/images/flag-sprite-2.svg');
 }
 
 @font-face {
     font-family: din-round;
-    src: url('./assets/DINRoundPro-Medi.ttf');
+    src: url('https://github.com/website-of-frzzl/website/blob/e1c4720b7841a52697303a6d504b3e5702d6c78e/duolingo/flags/assets/DINRoundPro-Medi.ttf');
 }
 
 * {
