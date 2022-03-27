@@ -4,7 +4,7 @@
 
 @font-face {
     font-family: din-round;
-    src: url('https://github.com/website-of-frzzl/website/blob/e1c4720b7841a52697303a6d504b3e5702d6c78e/duolingo/flags/assets/DINRoundPro-Medi.ttf');
+    src: url('./assets/DINRoundPro-Medi.ttf');
 }
 
 * {
