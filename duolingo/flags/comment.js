@@ -26,7 +26,7 @@ function load() {
 
 function reload() {
   window.location.href =
-    "http://127.0.0.1:5555/index.html?username=" + $("#username").val();
+    "https://frzzl.uk/duolingo/flags?username=" + $("#username").val();
 }
 
 // References 
