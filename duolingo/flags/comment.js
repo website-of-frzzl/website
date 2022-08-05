@@ -84,6 +84,7 @@ const courses_lookup = {
   tl: "Tagalog",
   mi: "Maori",
   "zh-HK": "Cantonese",
+  zu: "Zulu",
 };
 const otherflags = { "zh-HK": "./assets/cantonese.png" };
 
