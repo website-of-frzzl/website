@@ -83,7 +83,6 @@ const courses_lookup = {
   ht: "Haitian Creole",
   tl: "Tagalog",
   mi: "Maori",
-  "zh-HK": "Cantonese",
   zu: "Zulu",
 };
 const otherflags = { "zh-HK": "./assets/cantonese.png" };
