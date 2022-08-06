@@ -62,7 +62,7 @@ const courses_lookup = {
   hu: "Hungarian",
   cy: "Welsh",
   uk: "Ukrainian",
-  kl: "Klingon",
+  tlh: "Klingon",
   cs: "Czech",
   hi: "Hindi",
   id: "Indonesian",
