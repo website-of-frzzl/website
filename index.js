@@ -1,6 +1,5 @@
 $(document).ready(function(){
 
-    $("#wrap").css("border", "0px solid rgba(199, 68, 64, 0)");
     $(".flag").click(async function(){
 
       $(this).attr("class","selected flag");
