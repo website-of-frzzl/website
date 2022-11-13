@@ -1,5 +1,16 @@
 $(document).ready(function(){
 
+  
+  function redirect(loc) {
+    window.location.href = '/' + loc;
+  }
+
+  $(".flag").keyup(function(e){
+    if (e.keyCode == 13) {
+      $(this).click();
+    }
+  })
+    
     $(".flag").click(async function(){
 
       $(this).attr("class","selected flag");
@@ -25,6 +36,7 @@ $(document).ready(function(){
       newFlag.fadeOut()
       await new Promise(resolve => setTimeout(resolve, 1000));
 
-      window.location.href = '/' + this.id;
+      redirect(this.id);
     });
   });
+
